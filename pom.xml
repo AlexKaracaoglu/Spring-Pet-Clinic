@@ -14,7 +14,7 @@
     </parent>
     <groupId>learn</groupId>
     <artifactId>spring-pet-clinic</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.2-SNAPSHOT</version>
     <name>spring-pet-clinic</name>
     <description>Improving My Spring Skills With The Pet Clinic App</description>
 
@@ -43,7 +43,7 @@
 
     <scm>
         <developerConnection>scm:git:https://github.com/AlexKaracaoglu/Spring-Pet-Clinic.git</developerConnection>
-      <tag>spring-pet-clinic-0.0.1</tag>
+      <tag>HEAD</tag>
   </scm>
 
 </project>
