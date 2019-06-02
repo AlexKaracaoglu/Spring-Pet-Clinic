@@ -33,12 +33,12 @@ public class OwnerSDJpaService implements OwnerService {
 
     @Override
     public Set<Owner> findAll() {
-        Iterable<Owner> ownerSet = ownerRepository.findAll();
-        Set<Owner> owners = new HashSet<>();
-        for (Owner owner: ownerSet) {
-            owners.add(owner);
+        Iterable<Owner> owners = ownerRepository.findAll();
+        Set<Owner> ownerSet = new HashSet<>();
+        for (Owner owner: owners) {
+            ownerSet.add(owner);
         }
-        return owners;
+        return ownerSet;
     }
 
     @Override
