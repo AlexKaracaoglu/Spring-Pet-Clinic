@@ -1,10 +1,7 @@
 package learn.springpetclinic.bootstrap;
 
 import learn.springpetclinic.model.*;
-import learn.springpetclinic.services.OwnerService;
-import learn.springpetclinic.services.PetTypeService;
-import learn.springpetclinic.services.SpecialtyService;
-import learn.springpetclinic.services.VetService;
+import learn.springpetclinic.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -18,13 +15,15 @@ public class DataLoader implements CommandLineRunner {
     private final VetService vetService;
     private final PetTypeService petTypeService;
     private final SpecialtyService specialtyService;
+    private final VisitService visitService;
     
     @Autowired
-    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialtyService specialtyService) {
+    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialtyService specialtyService, VisitService visitService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
         this.petTypeService = petTypeService;
         this.specialtyService = specialtyService;
+        this.visitService = visitService;
     }
 
     @Override
@@ -88,12 +87,20 @@ public class DataLoader implements CommandLineRunner {
 
         ownerService.save(owner2);
 
+        Visit visit = new Visit();
+        visit.setPet(owner2Pet);
+        visit.setDate(LocalDate.now());
+        visit.setDescription("Visit for owner 2's pet");
+
+        visitService.save(visit);
+
         System.out.println("Loaded owners!");
 
         Vet vet1 = new Vet();
         vet1.setFirstName("FNV1");
         vet1.setLastName("LNV1");
         vet1.getSpecialties().add(savedSpecialty1);
+        vet1.getSpecialties().add(savedSpecialty3);
 
         vetService.save(vet1);
 
