@@ -5,11 +5,13 @@ import learn.springpetclinic.model.Specialty;
 import learn.springpetclinic.model.Vet;
 import learn.springpetclinic.services.SpecialtyService;
 import learn.springpetclinic.services.VetService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
+@Profile({"default", "map"})
 public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetService {
 
     private final SpecialtyService specialtyService;
