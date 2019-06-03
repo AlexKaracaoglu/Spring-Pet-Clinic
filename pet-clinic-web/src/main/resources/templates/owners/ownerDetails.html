@@ -9,22 +9,22 @@
     <h2>Owner Information</h2>
   
   
-    <table class="table table-striped" th:object="${owner}">
+    <table class="table table-striped" >
       <tr>
         <th>Name</th>
-        <td><b th:text="*{firstName + ' ' + lastName}"></b></td>
+        <td><b th:text="*{owner.firstName + ' ' + owner.lastName}"></b></td>
       </tr>
       <tr>
         <th>Address</th>
-        <td th:text="*{address}" /></td>
+        <td th:text="*{owner.address}" /></td>
       </tr>
       <tr>
         <th>City</th>
-        <td th:text="*{city}" /></td>
+        <td th:text="*{owner.city}" /></td>
       </tr>
       <tr>
         <th>Telephone</th>
-        <td th:text="*{telephone}" /></td>
+        <td th:text="*{owner.telephone}" /></td>
       </tr>
     </table>
   
